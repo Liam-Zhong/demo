@@ -7,11 +7,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://liam-zhong.github.io/post/caozhi/</loc>
-    <lastmod>2024-07-06T13:36:16+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://liam-zhong.github.io/tags/index/</loc>
     <lastmod>2024-07-06T13:36:16+08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -23,6 +18,11 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://liam-zhong.github.io/tags/</loc>
+    <lastmod>2024-07-06T13:36:16+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://liam-zhong.github.io/post/caozhi/</loc>
     <lastmod>2024-07-06T13:36:16+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
