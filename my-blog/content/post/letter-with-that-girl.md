@@ -7,7 +7,7 @@ comments = true
 
 +++
 
-mardown保持书信格式真难
+markdown保持书信格式真难
 
 -----
 亲爱的丫头：
