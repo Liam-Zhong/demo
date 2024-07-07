@@ -826,7 +826,7 @@ copyright.<br>
 
 亲爱的丫头：
 
-&emsp;&emsp;今天是3月21日[^2 ]，老李的生日😁
+&emsp;&emsp;今天是3月21日[^1 ]，老李的生日😁
 
 >惟愿这天下终有一天云开雾散、重返安宁。<br>
 愿耕者有其田，居者有其屋。<br>
@@ -975,9 +975,19 @@ copyright.<br>
 
 -----
 
+</div>
+
 <div align="center">    
-<img src="https://picx.zhimg.com/80/v2-880c9b2f0a635f71ce9fd8d8e7c95b63_1440w.png" alt="久雨后的路口" width="50%" height="auto">
-<center><small>后来我就跑路了</small></center>
+    <div style="display: flex; justify-content: center; gap: 10px;">
+        <div>
+            <img src="https://picx.zhimg.com/80/v2-5fbee45261357a0afd9c4399933ad8a9_1440w.png" alt="过客年度报告" width="50%" height="auto">
+            <center><small>过客年度报告</small></center>
+        </div>
+        <div>
+            <img src="https://picx.zhimg.com/80/v2-880c9b2f0a635f71ce9fd8d8e7c95b63_1440w.png" alt="后来我就跑路了" width="50%" height="auto">
+            <center><small>后来我就跑路了</small></center>
+        </div>
+    </div>
 </div>
 
 
@@ -985,5 +995,5 @@ copyright.<br>
 
 
 
-[^1]: 这封写的什么玩意
-[^2 ]: 3月2号
+
+[^1 ]: 3月2号
