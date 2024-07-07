@@ -310,7 +310,7 @@ ps：没有邮票了，可能回的会比较慢（哭），那就慢慢来吧，
 丫头">
   <meta itemprop="datePublished" content="2024-07-05T15:38:31+08:00">
   <meta itemprop="dateModified" content="2024-07-05T15:38:31+08:00">
-  <meta itemprop="wordCount" content="518">
+  <meta itemprop="wordCount" content="715">
   
   <meta property="og:url" content="https://liam-zhong.github.io/post/letter-with-that-girl/">
   <meta property="og:site_name" content="承霖的部落格">
@@ -1171,15 +1171,90 @@ copyright.<br></p>
 <div align="center">    
     <div style="display: flex; justify-content: center; gap: 10px;">
         <div>
-            <img src="https://picx.zhimg.com/80/v2-5fbee45261357a0afd9c4399933ad8a9_1440w.png" alt="过客年度报告" width="50%" height="auto">
+            <img src="https://picx.zhimg.com/80/v2-5fbee45261357a0afd9c4399933ad8a9_1440w.png" alt="过客年度报告" width="75%" height="auto">
             <center><small>过客年度报告</small></center>
         </div>
         <div>
-            <img src="https://picx.zhimg.com/80/v2-880c9b2f0a635f71ce9fd8d8e7c95b63_1440w.png" alt="后来我就跑路了" width="50%" height="auto">
+            <img src="https://picx.zhimg.com/80/v2-880c9b2f0a635f71ce9fd8d8e7c95b63_1440w.png" alt="后来我就跑路了" width="75%" height="auto">
             <center><small>后来我就跑路了</small></center>
         </div>
     </div>
 </div>
+<hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> jieba
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> wordcloud <span style="color:#f92672">import</span> WordCloud
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> PIL <span style="color:#f92672">import</span> Image, ImageDraw, ImageFont
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 读取Markdown文件</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">read_markdown</span>(file_path):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> open(file_path, <span style="color:#e6db74">&#39;r&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;utf-8&#39;</span>) <span style="color:#66d9ef">as</span> file:
+</span></span><span style="display:flex;"><span>        text <span style="color:#f92672">=</span> file<span style="color:#f92672">.</span>read()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 提取中文字符</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">extract_chinese</span>(text):
+</span></span><span style="display:flex;"><span>    chinese_text <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>findall(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;[\u4e00-\u9fff]+&#39;</span>, text)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#f92672">.</span>join(chinese_text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 中文分词</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">chinese_word_segmentation</span>(text):
+</span></span><span style="display:flex;"><span>    seg_list <span style="color:#f92672">=</span> jieba<span style="color:#f92672">.</span>cut(text, cut_all<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>    seg_list <span style="color:#f92672">=</span> [word <span style="color:#66d9ef">for</span> word <span style="color:#f92672">in</span> seg_list <span style="color:#66d9ef">if</span> len(word) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#f92672">.</span>join(seg_list)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建“霖”字的模板图片</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_mask_image</span>(char, font_path<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;msyh.ttc&#39;</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">1600</span>):  
+</span></span><span style="display:flex;"><span>    image <span style="color:#f92672">=</span> Image<span style="color:#f92672">.</span>new(<span style="color:#e6db74">&#39;RGB&#39;</span>, (size, size), <span style="color:#e6db74">&#39;white&#39;</span>)
+</span></span><span style="display:flex;"><span>    draw <span style="color:#f92672">=</span> ImageDraw<span style="color:#f92672">.</span>Draw(image)
+</span></span><span style="display:flex;"><span>    font <span style="color:#f92672">=</span> ImageFont<span style="color:#f92672">.</span>truetype(font_path, int(size <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.9</span>))
+</span></span><span style="display:flex;"><span>    text_bbox <span style="color:#f92672">=</span> draw<span style="color:#f92672">.</span>textbbox((<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>), char, font<span style="color:#f92672">=</span>font)
+</span></span><span style="display:flex;"><span>    text_width <span style="color:#f92672">=</span> text_bbox[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">-</span> text_bbox[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    text_height <span style="color:#f92672">=</span> text_bbox[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">-</span> text_bbox[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    draw<span style="color:#f92672">.</span>text(((size <span style="color:#f92672">-</span> text_width) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>, (size <span style="color:#f92672">-</span> text_height) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>), char, font<span style="color:#f92672">=</span>font, fill<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
+</span></span><span style="display:flex;"><span>    mask <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(image<span style="color:#f92672">.</span>convert(<span style="color:#e6db74">&#39;L&#39;</span>))
+</span></span><span style="display:flex;"><span>    mask <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(mask <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">128</span>, <span style="color:#ae81ff">255</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> mask
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 生成词云</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_wordcloud</span>(text, mask, output_image_path):
+</span></span><span style="display:flex;"><span>    wordcloud <span style="color:#f92672">=</span> WordCloud(font_path<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;msyh.ttc&#39;</span>,  
+</span></span><span style="display:flex;"><span>                          background_color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;white&#39;</span>,
+</span></span><span style="display:flex;"><span>                          mask<span style="color:#f92672">=</span>mask,
+</span></span><span style="display:flex;"><span>                          max_words<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>,
+</span></span><span style="display:flex;"><span>                          max_font_size<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>,  
+</span></span><span style="display:flex;"><span>                          random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>,
+</span></span><span style="display:flex;"><span>                          width<span style="color:#f92672">=</span><span style="color:#ae81ff">1600</span>, 
+</span></span><span style="display:flex;"><span>                          height<span style="color:#f92672">=</span><span style="color:#ae81ff">1600</span>  
+</span></span><span style="display:flex;"><span>                          )<span style="color:#f92672">.</span>generate(text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">12</span>), dpi<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>)  
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>imshow(wordcloud, interpolation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bilinear&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;off&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>savefig(output_image_path, format<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;png&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#注意文件和代码同目录</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    markdown_file_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;letter-with-that-girl.md&#39;</span>  <span style="color:#75715e"># 替换为你自己的Markdown文件路径</span>
+</span></span><span style="display:flex;"><span>    output_image_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;wordcloud.png&#39;</span>  <span style="color:#75715e"># 输出的词云图片路径</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 读取并处理文本</span>
+</span></span><span style="display:flex;"><span>    text <span style="color:#f92672">=</span> read_markdown(markdown_file_path)
+</span></span><span style="display:flex;"><span>    chinese_text <span style="color:#f92672">=</span> extract_chinese(text)
+</span></span><span style="display:flex;"><span>    processed_text <span style="color:#f92672">=</span> chinese_word_segmentation(chinese_text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 创建“霖”字的模板图片</span>
+</span></span><span style="display:flex;"><span>    mask_image <span style="color:#f92672">=</span> create_mask_image(<span style="color:#e6db74">&#39;霖&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 生成词云</span>
+</span></span><span style="display:flex;"><span>    generate_wordcloud(processed_text, mask_image, output_image_path)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div><p><img src="https://picx.zhimg.com/80/v2-77ae4021eae78f0e7fc185796f5023fb_1440w.png" alt="霖"></p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
