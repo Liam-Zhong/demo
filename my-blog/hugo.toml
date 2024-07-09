@@ -17,7 +17,7 @@ title = "承霖的部落格"
 [params]
   color = 'linen'
 
-  twitter = 'ShuoLian62'
+# twitter = 'ShuoLian62'
   github = 'Liam-Zhong'
   rss = true
 
