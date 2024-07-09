@@ -1,9 +1,10 @@
 +++
 title = '我们到底学到了什么？'
 date = 2024-05-30T11:39:25+08:00
-math = true                                 # enable KaTeX math typesetting for a specific page
+math = true 
 draft = false
 comments = true
+description = "{{ .Summary }}"
 +++
 
 ![课表](https://pic3.zhimg.com/80/v2-8ebe5f7b265b9066904fc8d63ca75b8e_1440w.webp)

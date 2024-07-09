@@ -1,10 +1,10 @@
 +++
 title = 'MInecraft'
 date = 2024-06-05T23:39:15+08:00
-math = true                                 # enable KaTeX math typesetting for a specific page
+math = true 
 draft = false
 comments = true
-
+description = "{{ .Summary }}"
 +++
 
 故事的...

@@ -1,10 +1,10 @@
 +++
 title = '报告未遂'
 date = 2024-06-03T13:00:45+08:00
-math = true                                 # enable KaTeX math typesetting for a specific page
+math = true 
 draft = false
 comments = true
-
+description = "{{ .Summary }}"
 +++
 
 大二下的所谓”大作业“来得特别多，至今天还有ml、数据挖掘、数据库*2（真是令人悲伤）没写，算上已经完成的数学建模，人工智能，可以说是

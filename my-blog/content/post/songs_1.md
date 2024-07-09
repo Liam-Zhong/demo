@@ -1,9 +1,10 @@
 +++
 title = '听歌系列之烦恼'
 date = 2024-06-11T19:48:42+08:00
-math = true                                 # enable KaTeX math typesetting for a specific page
+math = true
 draft = false
 comments = true
+description = "{{ .Summary }}"
 +++
 
 第一次听蛋堡是在罗大佑的春夏秋冬里。“过程”给我一个轻快悠扬朗朗上口的感觉，全然与之前（现在也是）对饶舌rap歌曲的厌恶不同。“小熊”的调调也非常吸引我的耳虫，早已是我的穿脑魔音了。

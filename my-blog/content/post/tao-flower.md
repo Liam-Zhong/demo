@@ -1,10 +1,10 @@
 +++
 title = '搯花'
 date = 2024-06-06T22:07:11+08:00
-math = true                                 # enable KaTeX math typesetting for a specific page
+math = true
 draft = false
 comments = true
-
+description = "{{ .Summary }}"
 +++
 
 怎么说呢。

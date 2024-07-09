@@ -1,9 +1,10 @@
 +++
 title = '购书一本'
 date = 2024-06-09T19:25:53+08:00
-math = true                                 # enable KaTeX math typesetting for a specific page
+math = true
 draft = false
 comments = true
+description = "{{ .Summary }}"
 +++
 
 今年以来兴趣都在钢笔那里，很久没有买书。

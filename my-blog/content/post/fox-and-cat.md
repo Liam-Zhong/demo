@@ -1,9 +1,10 @@
 +++
 title = '狐狸和猫'
 date = 2024-05-31T22:13:59+08:00
-math = true                                 # enable KaTeX math typesetting for a specific page
+math = true
 draft = false
 comments = true
+description = "{{ .Summary }}"
 +++
 
 小猫说：
