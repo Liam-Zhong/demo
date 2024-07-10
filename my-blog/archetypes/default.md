@@ -4,5 +4,4 @@ date = {{ .Date }}
 math = true 
 draft = false
 comments = true
-description = "{{ .Summary }}"
 +++
