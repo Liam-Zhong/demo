@@ -54,5 +54,8 @@ description = "{{ .Summary }}"
 
 
 
-> No, por favor, no lo hagas
+> No, por favor, no lo hagas[^1]
 
+
+
+[^1]:百年孤独的典故
