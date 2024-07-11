@@ -102,9 +102,7 @@ description = "{{ .Summary }}"
 
   微信读书 4.3.0
 
-  腾讯视频 
-
-  PowerPoint 2.80
+  腾讯视频HD
 
   **Reeder**
 
