@@ -4,7 +4,7 @@ date = 2024-07-12T11:04:58+08:00
 math = true 
 draft = false
 comments = true
-
+description = "{{ .Summary }}"
 +++
 
 将他的帖[^1]，弃置于此：

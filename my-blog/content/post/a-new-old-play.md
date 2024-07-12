@@ -5,7 +5,6 @@ math = true
 draft = false
 comments = true
 description = "{{ .Summary }}"
-
 +++
 
 [学长](https://space.bilibili.com/399708274)毕业了的事现在写不出来了。本来想找找那天的流水账意外发现没有写，只有这几个字：
