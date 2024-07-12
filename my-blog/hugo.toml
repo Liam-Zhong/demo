@@ -6,6 +6,7 @@ languageCode = "zh"
 DefaultContentLanguage = "zh"
 enableInlineShortcodes = true
 ignoreErrors = ["error-remote-getjson"]
+
 theme = "paper"
 title = "承霖的部落格"
 
