@@ -7,9 +7,8 @@ author = "liam"
 comments = false
 
 +++
-
-- 知乎 | [春晼](https://www.zhihu.com/people/zhongcl-jiang)
-- QQ   | [钟声晚](tencent://message/?uin=545659205&Site=&Menu=yes)
-- 邮箱 | [chlzhong@outlook.com](mailto:chlzhong@outlook.com)
-- Blog | [承霖的部落格](https://liam-zhong.github.io/)
-- Steam|[Tuffy](https://steamcommunity.com/profiles/76561199395884361/)
+- [QQ](http://wpa.qq.com/msgrd?v=3&uin=545659205&site=qq&menu=yes)
+- [邮箱](mailto:chlzhong@outlook.com)
+- [知乎](https://www.zhihu.com/people/zhongcl-jiang)
+- [哔哩哔哩](https://space.bilibili.com/3546587322124798)
+- [Steam](https://steamcommunity.com/profiles/76561199395884361/)
