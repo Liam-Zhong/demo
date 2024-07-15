@@ -13,6 +13,6 @@ comments = true
 
 ——还不谢谢叔叔！
 
-（幸好还没有头发认我为女。）
+（幸好还没有因头发认我为女。）
 
-于是乃知阿姨之冒犯。
+于是乃知[阿姨](https://www.allsetlearning.com/news/ayi)之冒犯。
