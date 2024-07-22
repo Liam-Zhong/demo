@@ -39,5 +39,5 @@ comments = true
 说到鲁迅今天的月夜的确是深蓝色的，记录一下不是少年的我在尴尬期的头发：
 
 <div style="text-align: center;">
-  <img src="https://pic1.zhimg.com/80/v2-fc65a34994994816bd14f52e76ef30ce_1440w.png" alt="蓝月夜" style="max-width: 100%; height: auto;">
+  <img src="/images/cool-guy.jpeg" alt="蓝月夜" class="img-apple">
 </div>
